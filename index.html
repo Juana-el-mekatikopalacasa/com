@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- El viewport está correcto, permite que el sitio escale al ancho del dispositivo -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juana el Mekatico pa'la casa | Snacks Saludables</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>🥜</text></svg>">
+    <!-- Cargamos Lucide con 'defer' para no bloquear el renderizado inicial -->
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+</head>
+
+<body>
+    <!-- Barras sociales: Asegúrate en CSS que no tapen contenido importante en móvil -->
+    <aside class="social-bar" aria-label="Redes Sociales">
+        <a href="https://wa.me/573133466414" class="icon whatsapp" target="_blank" rel="noopener noreferrer">
+            <img src="images/whatsapp-icon.png" alt="WhatsApp" class="social-icon">
+        </a>
+        <a href="#" class="icon facebook" target="_blank" rel="noopener noreferrer">
+            <img src="images/facebook-icon.png" alt="Facebook" class="social-icon">
+        </a>
+        <a href="#" class="icon tiktok" target="_blank" rel="noopener noreferrer">
+            <img src="images/tiktok-icon.png" alt="TikTok" class="social-icon">
+        </a>
+    </aside>
+
+    <header>
+        <nav>
+            <div class="logo">Juana el Mekatico pa'la casa 🥜</div>
+            <!-- Moví el icono de carrito dentro de nav o cerca del header para control de posición -->
+            <div class="cart-icon-header" aria-label="Ver carrito">
+                <i data-lucide="shopping-basket"></i>
+                <span id="cart-count-header">0</span>
+            </div>
+        </nav>
+        <div class="hero">
+            <h1 style="color: rgb(208, 219, 119);">Del campo a tu casa</h1>
+            <p>Frutos secos y snacks para disfrutar sin culpas.</p>
+        </div>
+    </header>
+
+    <main>
+        <!-- Contenedor dinámico de productos -->
+        <section class="product-grid" id="grid-productos" aria-live="polite"></section>
+
+        <!-- Resumen de pedido: En móvil este suele ser fijo o al final -->
+        <section id="resumen-pedido" class="resumen-container">
+            <h3>🛒 Tu Pedido de Mekatico</h3>
+            <div class="resumen-detalles">
+                <p>Productos seleccionados: <span id="cart-count">0</span></p>
+                <p class="total-texto">Subtotal: <strong id="total-precio">$0</strong></p>
+            </div>
+            <button onclick="enviarWhatsApp()" class="btn-comprar-wa">
+                <i data-lucide="truck"></i> Pedir por WhatsApp
+            </button>
+        </section>
+    </main>
+
+    <!-- Script principal al final -->
+    <script src="script.js"></script>
+    <script>
+        // Inicialización de iconos después de cargar el DOM
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        });
+    </script>
+</body>
+
+</html>
